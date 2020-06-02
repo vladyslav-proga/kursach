@@ -6,7 +6,12 @@ const mongoose = require('mongoose');
 require('dotenv/config');
 
 
-//import routes
+//Improt routes
+const postsRoute = require('./routes/Post.js');
+
+app.use('/posts', postsRoute);
+
+//Main route
 app.get('/', (req, res) => {
   res.send('First route');
 });
