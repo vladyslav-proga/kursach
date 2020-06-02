@@ -3,6 +3,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+require('dotenv/config');
 
 
 //import routes
@@ -12,8 +13,8 @@ app.get('/', (req, res) => {
 
 
 //Connect to DB
-mongoose.connect('ongodb+srv://testboy:csgocool1234@testboy-xnk8b.mongodb.net/test?retryWrites=true&w=majority',
-  { useNewUrlParser: true },
+mongoose.connect(process.env.DB_CONNECTION,
+  { useNewUrlParser: true, useUnifiedTopology: true },
   () => console.log('Connected to DB')
 );
 
