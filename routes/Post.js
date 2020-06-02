@@ -8,3 +8,7 @@ const router = express.Router();
 router.get('/posts', (req, res) => {
   res.send('First post');
 });
+
+
+
+module.exports = router;
