@@ -3,7 +3,7 @@
 
 const express = require('express');
 const router = express.Router();
-
+const posts = require('../models/posts');
 
 router.get('/', (req, res) => {
   res.send('First post');
