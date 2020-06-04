@@ -3,11 +3,13 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 require('dotenv/config');
 
+app.use(bodyParser.json());
 
 //Improt routes
-const postsRoute = require('./routes/Post.js');
+const postsRoute = require('./routes/posts.js');
 
 app.use('/posts', postsRoute);
 
