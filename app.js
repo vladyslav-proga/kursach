@@ -10,8 +10,10 @@ app.use(bodyParser.json());
 
 //Improt routes
 const postsRoute = require('./routes/posts.js');
+const authRoute = require('./routes/auth');
 
 app.use('/posts', postsRoute);
+app.use('/api/user', authRoute);
 
 //Main route
 app.get('/', (req, res) => {
