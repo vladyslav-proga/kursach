@@ -1,6 +1,5 @@
 'use strict';
 
-
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
@@ -14,7 +13,6 @@ router.get('/', async (req, res) => {
     res.json({ message: err });
   }
 });
-
 
 //Specific post
 router.get('/:postId', async (req, res) => {
@@ -63,8 +61,5 @@ router.post('/', (req, res) => {
       res.json({ message: err });
     });
 });
-
-
-
 
 module.exports = router;
