@@ -6,11 +6,14 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 require('dotenv/config');
 
-app.use(bodyParser.json());
-
 //Improt routes
 const postsRoute = require('./routes/posts.js');
 const authRoute = require('./routes/auth');
+
+const port = process.env.PORT;
+const mongoUri = process.env.DB_CONNECTION;
+
+app.use(bodyParser.json());
 
 app.use('/posts', postsRoute);
 app.use('/api/user', authRoute);
@@ -21,10 +24,11 @@ app.get('/', (req, res) => {
 });
 
 //Connect to DB
-mongoose.connect(process.env.DB_CONNECTION,
+mongoose.connect(
+  mongoUri,
   { useNewUrlParser: true, useUnifiedTopology: true },
-  () => console.log('Connected to DB')
+  () => console.log(`Connected to DB:${mongoUri}`)
 );
 
 //Start listening to the serv
-app.listen(1234);
+app.listen(port, () => console.log(`Server is on a port: ${port}`));

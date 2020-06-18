@@ -27,8 +27,9 @@ router.get('/:postId', async (req, res) => {
 //Update specfic post
 router.patch('/postId', async (req, res) => {
   try {
-    const updatedPost = await Post.updated({ _id: req.params.postId },
-      { $set: { title: req.body.title } }
+    const updatedPost = await Post.updated(
+      { _id: req.params.postId },
+      { title: req.body.title }
     );
     res.json(updatedPost);
   } catch (err) {
